@@ -7,7 +7,8 @@ class App extends Component {
     super(props);
     this.state = {
       cardHolderName: "",
-      ssn: ""
+      ssn: "",
+      merchantName:""
     }
   }
 
@@ -17,7 +18,11 @@ setCardHolderName = (cardHolderName) => {
 
 setSsn = (ssn) => {
   this.setState({ssn: ssn});
-}  
+}
+
+setMerchantName = (merchantName) => {
+  this.setState({merchantName: merchantName})
+}
 
   render() {
     return (
@@ -33,6 +38,10 @@ setSsn = (ssn) => {
             <input id="ssn" onChange={event => this.setSsn(event.target.value)}/>
           </label>
           <br/>
+          <label>
+            Merchant Name
+            <input id="merchantName" onChange={event => this.setMerchantName(event.target.value)}/>
+          </label>
         </header>
       </div>
     );

@@ -26,4 +26,14 @@ describe("user input", () => {
         const pageData = page.instance()
         expect(pageData.state.ssn).toEqual("123456789")
     })
+
+    it('should update the merchant name when the user updates the fields', () => {
+        const page = mount(<App/>);
+        const merchantNameInput = page.find('#merchantName');
+
+        merchantNameInput.simulate('change', {target: {value: 'Teds Beds'}})
+
+        const pageData = page.instance()
+        expect(pageData.state.merchantName).toEqual('Teds Beds')
+    })
 })
