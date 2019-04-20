@@ -16,4 +16,14 @@ describe("user input", () => {
         const pageData = page.instance()
         expect(pageData.state.cardHolderName).toEqual("Jonathan Dough")
     })
+
+    it('should update the ssn state data when the user updates the fields', () => {
+        const page = mount(<App/>);
+        const ssnInput = page.find('#ssn');
+
+        ssnInput.simulate('change', {target: {value: '123456789'}})
+
+        const pageData = page.instance()
+        expect(pageData.state.ssn).toEqual("123456789")
+    })
 })
